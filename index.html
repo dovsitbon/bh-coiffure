@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>B & H Coiffure Montmagny · Coiffeur Homme, Femme, Enfant & Barbier</title>
+  <meta name="description" content="B & H Coiffure, salon de coiffure à Montmagny (95360) : coupes femme, homme et enfant, colorations, balayages, soins cheveux bouclés, extensions et barbier. Ouvert 7j/7 de 9h à 19h30 non-stop." />
+  <meta name="theme-color" content="#14100d" />
+  <link rel="canonical" href="https://bh-coiffure.vercel.app/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="B & H Coiffure · Montmagny" />
+  <meta property="og:description" content="Coiffure homme, femme, enfant & barbier. Ouvert 7j/7, 9h–19h30 non-stop. 1 Rue de Montmorency, 95360 Montmagny." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80" />
+  <meta property="og:locale" content="fr_FR" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314100d'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-size='26' fill='%23d4af6a' text-anchor='middle'%3EB%26amp;H%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ink: '#14100d',
+            moka: { 900: '#1c1612', 800: '#261d17', 700: '#352920', 600: '#4a392c' },
+            gold: { 300: '#ecd49b', 400: '#d4af6a', 500: '#c19a50', 600: '#a17c38' },
+            cream: '#f5ede1',
+          },
+          fontFamily: {
+            display: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <script src="https://unpkg.com/lucide@0.469.0/dist/umd/lucide.min.js"></script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "B & H Coiffure",
+    "description": "Salon de coiffure homme, femme, enfant et barbier à Montmagny.",
+    "url": "https://bh-coiffure.vercel.app/",
+    "image": "https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1 Rue de Montmorency",
+      "postalCode": "95360",
+      "addressLocality": "Montmagny",
+      "addressRegion": "Val-d'Oise",
+      "addressCountry": "FR"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "09:00",
+      "closes": "19:30"
+    }]
+  }
+  </script>
+
+  <style>
+    :root { --gold: #d4af6a; }
+    html { background: #14100d; }
+    body { -webkit-font-smoothing: antialiased; }
+    fieldset { min-width: 0; }
+    .glass { background: rgba(38, 29, 23, 0.55); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%); border: 1px solid rgba(236, 212, 155, 0.12); }
+    .glass-strong { background: rgba(20, 16, 13, 0.78); backdrop-filter: blur(20px) saturate(150%); -webkit-backdrop-filter: blur(20px) saturate(150%); }
+    .text-gold-grad { background: linear-gradient(100deg, #f3dfae 0%, #d4af6a 45%, #a17c38 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .grain::before { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .06; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s cubic-bezier(.2,.7,.2,1), transform .8s cubic-bezier(.2,.7,.2,1); }
+    .reveal.is-visible { opacity: 1; transform: none; }
+
+    .tab-btn[aria-selected="true"] { background: #d4af6a; color: #14100d; border-color: #d4af6a; }
+    .service-card { transition: transform .35s cubic-bezier(.2,.7,.2,1), border-color .35s, background-color .35s; }
+    .service-card:hover { transform: translateY(-4px); border-color: rgba(212,175,106,.45); background-color: rgba(53,41,32,.7); }
+    .service-card.fade-in { animation: cardIn .45s cubic-bezier(.2,.7,.2,1) both; }
+    @keyframes cardIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+
+    .gallery-item img { transition: transform .9s cubic-bezier(.2,.7,.2,1), filter .6s; }
+    .gallery-item:hover img, .gallery-item:focus-within img { transform: scale(1.08); filter: saturate(1.1); }
+    .gallery-item .cap { transition: opacity .4s, transform .4s; }
+    .gallery-item:hover .cap, .gallery-item:focus-within .cap { opacity: 1; transform: none; }
+
+    @media (hover: none) { .gallery-item .cap { opacity: 1; transform: none; } }
+    .slot[aria-pressed="true"], .chip[aria-pressed="true"] { background: #d4af6a; color: #14100d; border-color: #d4af6a; }
+    .slot:disabled { opacity: .3; cursor: not-allowed; text-decoration: line-through; }
+
+    #booking[open] .modal-panel { animation: modalIn .35s cubic-bezier(.2,.7,.2,1) both; }
+    #booking::backdrop { background: rgba(10, 8, 6, .72); backdrop-filter: blur(6px); }
+    @keyframes modalIn { from { opacity: 0; transform: translateY(20px) scale(.98); } to { opacity: 1; transform: none; } }
+
+    .marquee-track { animation: marquee 32s linear infinite; }
+    @keyframes marquee { to { transform: translateX(-50%); } }
+
+    :focus-visible { outline: 2px solid #d4af6a; outline-offset: 3px; border-radius: 6px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+
+<body class="bg-ink font-sans text-cream/90 selection:bg-gold-400 selection:text-ink">
+
+  <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-gold-400 focus:px-4 focus:py-2 focus:text-ink">Aller au contenu</a>
+
+  <!-- ============ HEADER ============ -->
+  <header id="header" class="fixed inset-x-0 top-0 z-50 transition-all duration-300">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
+      <a href="#accueil" class="group flex items-center gap-3" aria-label="B & H Coiffure, retour à l'accueil">
+        <span class="grid h-11 w-11 place-items-center rounded-full border border-gold-400/50 font-display text-lg font-semibold text-gold-300 transition group-hover:bg-gold-400 group-hover:text-ink">B&amp;H</span>
+        <span class="leading-tight">
+          <span class="block whitespace-nowrap font-display text-lg font-semibold text-cream">B &amp; H Coiffure</span>
+          <span class="block text-[11px] uppercase tracking-[.22em] text-gold-300/80">Montmagny</span>
+        </span>
+      </a>
+
+      <nav aria-label="Navigation principale" class="hidden lg:block">
+        <ul class="flex items-center gap-8 text-sm font-medium text-cream/75">
+          <li><a class="nav-link transition hover:text-gold-300" href="#prestations">Prestations</a></li>
+          <li><a class="nav-link transition hover:text-gold-300" href="#salon">Le salon</a></li>
+          <li><a class="nav-link transition hover:text-gold-300" href="#galerie">Galerie</a></li>
+          <li><a class="nav-link transition hover:text-gold-300" href="#contact">Infos pratiques</a></li>
+        </ul>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button type="button" data-open-booking class="inline-flex min-h-[44px] items-center gap-2 whitespace-nowrap rounded-full bg-gold-400 px-4 sm:px-5 text-sm font-semibold text-ink shadow-lg shadow-gold-500/20 transition hover:bg-gold-300 active:scale-[.98]">
+          <i data-lucide="calendar-check" class="h-4 w-4" aria-hidden="true"></i>
+          <span class="sm:hidden">RDV</span><span class="hidden sm:inline">Prendre RDV</span>
+        </button>
+        <button id="burger" type="button" class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 text-cream transition hover:border-gold-400/60 lg:hidden" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" class="h-5 w-5" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="glass-strong hidden border-t border-gold-400/10 lg:hidden">
+      <nav aria-label="Navigation mobile" class="mx-auto max-w-7xl px-4 py-4 sm:px-6">
+        <ul class="flex flex-col text-base font-medium">
+          <li><a class="mobile-link flex min-h-[48px] items-center justify-between border-b border-cream/5 py-3 text-cream/85" href="#prestations">Prestations & tarifs <i data-lucide="arrow-right" class="h-4 w-4 text-gold-400" aria-hidden="true"></i></a></li>
+          <li><a class="mobile-link flex min-h-[48px] items-center justify-between border-b border-cream/5 py-3 text-cream/85" href="#salon">Le salon <i data-lucide="arrow-right" class="h-4 w-4 text-gold-400" aria-hidden="true"></i></a></li>
+          <li><a class="mobile-link flex min-h-[48px] items-center justify-between border-b border-cream/5 py-3 text-cream/85" href="#galerie">Galerie <i data-lucide="arrow-right" class="h-4 w-4 text-gold-400" aria-hidden="true"></i></a></li>
+          <li><a class="mobile-link flex min-h-[48px] items-center justify-between py-3 text-cream/85" href="#contact">Infos pratiques <i data-lucide="arrow-right" class="h-4 w-4 text-gold-400" aria-hidden="true"></i></a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section id="accueil" class="grain relative isolate overflow-hidden pt-28 lg:pt-32">
+      <div aria-hidden="true" class="pointer-events-none absolute -left-40 top-10 -z-10 h-[520px] w-[520px] rounded-full bg-gold-500/10 blur-3xl"></div>
+      <div aria-hidden="true" class="pointer-events-none absolute -right-32 bottom-0 -z-10 h-[420px] w-[420px] rounded-full bg-moka-600/40 blur-3xl"></div>
+
+      <div class="mx-auto grid max-w-7xl items-center gap-12 px-4 pb-20 sm:px-6 lg:grid-cols-12 lg:gap-8 lg:px-8 lg:pb-28">
+        <div class="lg:col-span-6 xl:col-span-5">
+          <p class="reveal inline-flex items-center gap-2 rounded-full border border-gold-400/30 bg-gold-400/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[.18em] text-gold-300">
+            <span class="relative flex h-2 w-2"><span id="open-ping" class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span><span id="open-dot" class="relative inline-flex h-2 w-2 rounded-full bg-emerald-400"></span></span>
+            Ouvert 7j/7 · 9h – 19h30 non-stop
+          </p>
+
+          <h1 class="reveal mt-6 font-display text-[2.6rem] font-semibold leading-[1.05] text-cream sm:text-6xl xl:text-[4.2rem]">
+            Votre coiffeur<br class="hidden sm:block" /> de quartier, <em class="text-gold-grad not-italic sm:italic">l'exigence</em> en plus.
+          </h1>
+
+          <p class="reveal mt-6 max-w-lg text-lg leading-relaxed text-cream/70">
+            Coupes femme, homme et enfant, couleurs, balayages, soins des cheveux bouclés et barbier. Au cœur de Montmagny, une équipe passionnée vous accueille <strong class="font-semibold text-cream">tous les jours, sans interruption</strong>.
+          </p>
+
+          <div class="reveal mt-9 flex flex-col gap-3 sm:flex-row">
+            <button type="button" data-open-booking class="group inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gold-400 px-7 text-base font-semibold text-ink shadow-xl shadow-gold-500/20 transition hover:bg-gold-300 active:scale-[.98]">
+              Réserver mon rendez-vous
+              <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true"></i>
+            </button>
+            <a href="#prestations" class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-cream/20 px-7 text-base font-medium text-cream transition hover:border-gold-400/60 hover:text-gold-300">
+              Voir les tarifs
+            </a>
+          </div>
+
+          <dl class="reveal mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-cream/10 pt-8">
+            <div><dt class="text-xs uppercase tracking-wider text-cream/60">Ouverture</dt><dd class="mt-1 font-display text-2xl text-cream">7j/7</dd></div>
+            <div><dt class="text-xs uppercase tracking-wider text-cream/60">Amplitude</dt><dd class="mt-1 font-display text-2xl text-cream">10h30</dd></div>
+            <div><dt class="text-xs uppercase tracking-wider text-cream/60">Pour</dt><dd class="mt-1 font-display text-2xl text-cream">Tous</dd></div>
+          </dl>
+        </div>
+
+        <!-- Hero visual -->
+        <div class="reveal relative lg:col-span-6 xl:col-span-7">
+          <div class="relative mx-auto grid max-w-2xl grid-cols-5 grid-rows-6 gap-3 sm:gap-4" style="aspect-ratio: 5 / 4.6;">
+            <figure class="relative col-span-3 row-span-6 overflow-hidden rounded-[2rem]">
+              <img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=900&q=80" alt="Intérieur chaleureux d'un salon de coiffure avec fauteuils et miroirs" class="h-full w-full object-cover" width="900" height="1200" fetchpriority="high" />
+              <div class="absolute inset-0 bg-gradient-to-t from-ink/70 via-transparent to-transparent"></div>
+            </figure>
+            <figure class="relative col-span-2 row-span-3 overflow-hidden rounded-[1.6rem]">
+              <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=600&q=80" alt="Barbier réalisant une coupe homme aux ciseaux" class="h-full w-full object-cover" width="600" height="600" loading="lazy" />
+            </figure>
+            <figure class="relative col-span-2 row-span-3 overflow-hidden rounded-[1.6rem]">
+              <img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?auto=format&fit=crop&w=600&q=80" alt="Coiffeuse réalisant un brushing sur une cliente" class="h-full w-full object-cover" width="600" height="600" loading="lazy" />
+            </figure>
+
+            <!-- Floating glass card -->
+            <div class="glass absolute -bottom-6 left-4 right-4 flex items-center gap-4 rounded-2xl p-4 shadow-2xl shadow-black/40 sm:left-6 sm:right-auto sm:max-w-xs">
+              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold-400/15 text-gold-300"><i data-lucide="clock" class="h-5 w-5" aria-hidden="true"></i></span>
+              <div>
+                <p id="open-status" class="text-sm font-semibold text-cream">Ouvert aujourd'hui</p>
+                <p class="text-xs text-cream/60">De 09h00 à 19h30, sans pause déjeuner</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Marquee -->
+      <div class="border-y border-gold-400/10 bg-moka-900/60 py-4" aria-hidden="true">
+        <div class="flex overflow-hidden">
+          <div class="marquee-track flex shrink-0 items-center gap-10 whitespace-nowrap pr-10 font-display text-lg italic text-gold-300/70">
+            <span>Coupe femme</span><span class="text-gold-500">✦</span><span>Coupe homme</span><span class="text-gold-500">✦</span><span>Enfant</span><span class="text-gold-500">✦</span><span>Balayage</span><span class="text-gold-500">✦</span><span>Coloration</span><span class="text-gold-500">✦</span><span>Cheveux bouclés</span><span class="text-gold-500">✦</span><span>Extensions</span><span class="text-gold-500">✦</span><span>Barbier</span><span class="text-gold-500">✦</span>
+            <span>Coupe femme</span><span class="text-gold-500">✦</span><span>Coupe homme</span><span class="text-gold-500">✦</span><span>Enfant</span><span class="text-gold-500">✦</span><span>Balayage</span><span class="text-gold-500">✦</span><span>Coloration</span><span class="text-gold-500">✦</span><span>Cheveux bouclés</span><span class="text-gold-500">✦</span><span>Extensions</span><span class="text-gold-500">✦</span><span>Barbier</span><span class="text-gold-500">✦</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRESTATIONS ============ -->
+    <section id="prestations" class="relative scroll-mt-24 py-24 lg:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+          <div class="max-w-2xl">
+            <p class="reveal text-xs font-semibold uppercase tracking-[.22em] text-gold-400">Prestations & tarifs</p>
+            <h2 class="reveal mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">Une carte pensée pour toute la famille.</h2>
+            <p class="reveal mt-4 text-cream/65">Prix indicatifs, ajustés selon la longueur et l'épaisseur des cheveux. Un diagnostic gratuit est réalisé avant chaque prestation.</p>
+          </div>
+
+          <div class="reveal -mx-4 overflow-x-auto px-4 pb-1 sm:mx-0 sm:px-0">
+            <div role="tablist" aria-label="Catégories de prestations" class="flex w-max gap-2 rounded-full border border-cream/10 bg-moka-900/70 p-1.5">
+              <button role="tab" id="tab-femme" aria-controls="services-panel" aria-selected="true" data-cat="femme" class="tab-btn min-h-[44px] rounded-full border border-transparent px-5 text-sm font-semibold text-cream/75 transition hover:text-cream">Femme</button>
+              <button role="tab" id="tab-homme" aria-controls="services-panel" aria-selected="false" data-cat="homme" tabindex="-1" class="tab-btn min-h-[44px] rounded-full border border-transparent px-5 text-sm font-semibold text-cream/75 transition hover:text-cream">Homme & Barbier</button>
+              <button role="tab" id="tab-enfant" aria-controls="services-panel" aria-selected="false" data-cat="enfant" tabindex="-1" class="tab-btn min-h-[44px] rounded-full border border-transparent px-5 text-sm font-semibold text-cream/75 transition hover:text-cream">Enfant</button>
+              <button role="tab" id="tab-technique" aria-controls="services-panel" aria-selected="false" data-cat="technique" tabindex="-1" class="tab-btn min-h-[44px] rounded-full border border-transparent px-5 text-sm font-semibold text-cream/75 transition hover:text-cream">Technique & Couleur</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="services-panel" role="tabpanel" aria-labelledby="tab-femme" class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
+
+        <div class="reveal mt-10 flex flex-col items-start justify-between gap-4 rounded-2xl border border-gold-400/20 bg-gold-400/[.06] p-6 sm:flex-row sm:items-center">
+          <p class="text-sm text-cream/75"><i data-lucide="sparkles" class="mr-2 inline h-4 w-4 text-gold-400" aria-hidden="true"></i>Une envie précise ? Sans rendez-vous selon disponibilité, ou réservez votre créneau en 30 secondes.</p>
+          <button type="button" data-open-booking class="inline-flex min-h-[44px] shrink-0 items-center gap-2 rounded-full border border-gold-400/60 px-5 text-sm font-semibold text-gold-300 transition hover:bg-gold-400 hover:text-ink">Réserver <i data-lucide="arrow-up-right" class="h-4 w-4" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ POURQUOI NOUS ============ -->
+    <section id="salon" class="relative scroll-mt-24 overflow-hidden bg-moka-900 py-24 lg:py-32">
+      <div aria-hidden="true" class="pointer-events-none absolute right-0 top-0 h-[480px] w-[480px] rounded-full bg-gold-500/10 blur-3xl"></div>
+      <div class="mx-auto grid max-w-7xl gap-14 px-4 sm:px-6 lg:grid-cols-12 lg:px-8">
+        <div class="lg:col-span-5">
+          <p class="reveal text-xs font-semibold uppercase tracking-[.22em] text-gold-400">Pourquoi nous choisir</p>
+          <h2 class="reveal mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">Le savoir-faire d'un grand salon, la proximité d'un salon de quartier.</h2>
+          <p class="reveal mt-6 text-cream/65">Chez B &amp; H, on prend le temps de vous écouter. Votre nature de cheveux, votre rythme de vie, l'entretien que vous êtes prêt·e à faire : tout compte pour une coupe qui vous ressemble encore trois semaines après.</p>
+          <figure class="reveal relative mt-10 hidden overflow-hidden rounded-[2rem] lg:block">
+            <img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=900&q=80" alt="Postes de coiffage alignés dans un salon lumineux" class="h-72 w-full object-cover" width="900" height="600" loading="lazy" />
+          </figure>
+        </div>
+
+        <ul class="grid gap-4 sm:grid-cols-2 lg:col-span-7">
+          <li class="reveal glass group rounded-3xl p-7 transition hover:-translate-y-1 hover:border-gold-400/40">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold-400/15 text-gold-300 transition group-hover:bg-gold-400 group-hover:text-ink"><i data-lucide="scissors" class="h-5 w-5" aria-hidden="true"></i></span>
+            <h3 class="mt-6 font-display text-2xl text-cream">Coiffeurs passionnés</h3>
+            <p class="mt-3 text-sm leading-relaxed text-cream/65">Une équipe formée aux tendances comme aux techniques classiques, du dégradé américain au carré flou.</p>
+          </li>
+          <li class="reveal glass group rounded-3xl p-7 transition hover:-translate-y-1 hover:border-gold-400/40 sm:mt-10">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold-400/15 text-gold-300 transition group-hover:bg-gold-400 group-hover:text-ink"><i data-lucide="flask-conical" class="h-5 w-5" aria-hidden="true"></i></span>
+            <h3 class="mt-6 font-display text-2xl text-cream">Produits de qualité</h3>
+            <p class="mt-3 text-sm leading-relaxed text-cream/65">Colorations et soins professionnels sélectionnés pour respecter la fibre, du cuir chevelu aux pointes.</p>
+          </li>
+          <li class="reveal glass group rounded-3xl p-7 transition hover:-translate-y-1 hover:border-gold-400/40">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold-400/15 text-gold-300 transition group-hover:bg-gold-400 group-hover:text-ink"><i data-lucide="calendar-days" class="h-5 w-5" aria-hidden="true"></i></span>
+            <h3 class="mt-6 font-display text-2xl text-cream">7j/7, sans interruption</h3>
+            <p class="mt-3 text-sm leading-relaxed text-cream/65">Du lundi au dimanche, de 9h à 19h30 non-stop. Passez à la pause déjeuner ou le dimanche matin.</p>
+          </li>
+          <li class="reveal glass group rounded-3xl p-7 transition hover:-translate-y-1 hover:border-gold-400/40 sm:mt-10">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-gold-400/15 text-gold-300 transition group-hover:bg-gold-400 group-hover:text-ink"><i data-lucide="message-circle-heart" class="h-5 w-5" aria-hidden="true"></i></span>
+            <h3 class="mt-6 font-display text-2xl text-cream">Conseils personnalisés</h3>
+            <p class="mt-3 text-sm leading-relaxed text-cream/65">Diagnostic offert, routine d'entretien adaptée et recommandations honnêtes, notamment pour les cheveux bouclés.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ GALERIE ============ -->
+    <section id="galerie" class="scroll-mt-24 py-24 lg:py-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col justify-between gap-6 sm:flex-row sm:items-end">
+          <div>
+            <p class="reveal text-xs font-semibold uppercase tracking-[.22em] text-gold-400">Galerie</p>
+            <h2 class="reveal mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">Coupes, couleurs & finitions.</h2>
+          </div>
+          <p class="reveal max-w-sm text-sm text-cream/60">Un aperçu des styles réalisés au salon. Chaque photo indique la prestation correspondante.</p>
+        </div>
+
+        <div class="mt-12 grid auto-rows-[200px] grid-cols-2 gap-3 sm:auto-rows-[240px] sm:gap-4 lg:grid-cols-4">
+          <figure tabindex="0" class="gallery-item reveal relative col-span-2 row-span-2 overflow-hidden rounded-3xl">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=80" alt="Cliente avec une chevelure lisse et brillante après brushing" class="h-full w-full object-cover" loading="lazy" />
+            <figcaption class="cap absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl glass p-4 opacity-0 sm:inset-x-4 sm:bottom-4">
+              <p class="text-[11px] uppercase tracking-[.2em] text-gold-300">Femme</p><p class="font-display text-lg text-cream">Coupe & brushing lumière</p>
+            </figcaption>
+          </figure>
+          <figure tabindex="0" class="gallery-item reveal relative overflow-hidden rounded-3xl">
+            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" alt="Taille de barbe au rasoir par un barbier" class="h-full w-full object-cover" loading="lazy" />
+            <figcaption class="cap absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl glass p-3 opacity-0">
+              <p class="text-[11px] uppercase tracking-[.2em] text-gold-300">Barbier</p><p class="font-display text-base text-cream">Taille de barbe</p>
+            </figcaption>
+          </figure>
+          <figure tabindex="0" class="gallery-item reveal relative row-span-2 overflow-hidden rounded-3xl">
+            <img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?auto=format&fit=crop&w=600&q=80" alt="Application de coloration au pinceau sur mèches" class="h-full w-full object-cover" loading="lazy" />
+            <figcaption class="cap absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl glass p-3 opacity-0">
+              <p class="text-[11px] uppercase tracking-[.2em] text-gold-300">Technique</p><p class="font-display text-base text-cream">Balayage sur-mesure</p>
+            </figcaption>
+          </figure>
+          <figure tabindex="0" class="gallery-item reveal relative overflow-hidden rounded-3xl">
+            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=600&q=80" alt="Coupe homme dégradée à la tondeuse" class="h-full w-full object-cover" loading="lazy" />
+            <figcaption class="cap absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl glass p-3 opacity-0">
+              <p class="text-[11px] uppercase tracking-[.2em] text-gold-300">Homme</p><p class="font-display text-base text-cream">Dégradé net</p>
+            </figcaption>
+          </figure>
+          <figure tabindex="0" class="gallery-item reveal relative col-span-2 overflow-hidden rounded-3xl lg:col-span-1">
+            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?auto=format&fit=crop&w=800&q=80" alt="Soin et coiffage de cheveux bouclés" class="h-full w-full object-cover" loading="lazy" />
+            <figcaption class="cap absolute inset-x-3 bottom-3 translate-y-2 rounded-2xl glass p-3 opacity-0">
+              <p class="text-[11px] uppercase tracking-[.2em] text-gold-300">Soin</p><p class="font-display text-base text-cream">Boucles définies</p>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section id="contact" class="scroll-mt-24 pb-24 lg:pb-32">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grain relative overflow-hidden rounded-[2.2rem] border border-gold-400/15 bg-gradient-to-br from-moka-800 via-moka-900 to-ink p-6 sm:p-10 lg:p-14">
+          <div aria-hidden="true" class="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-gold-400/15 blur-3xl"></div>
+          <div class="relative grid gap-12 lg:grid-cols-2">
+            <div>
+              <p class="reveal text-xs font-semibold uppercase tracking-[.22em] text-gold-400">Réservation & infos pratiques</p>
+              <h2 class="reveal mt-4 font-display text-4xl font-semibold leading-tight text-cream sm:text-5xl">On vous attend à Montmagny.</h2>
+
+              <address class="reveal mt-8 not-italic">
+                <div class="flex items-start gap-4">
+                  <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-gold-400/15 text-gold-300"><i data-lucide="map-pin" class="h-5 w-5" aria-hidden="true"></i></span>
+                  <div>
+                    <p class="text-lg font-semibold text-cream">1 Rue de Montmorency</p>
+                    <p class="text-cream/65">95360 Montmagny · Val-d'Oise</p>
+                  </div>
+                </div>
+              </address>
+
+              <div class="reveal mt-8 flex flex-col gap-3 sm:flex-row">
+                <button type="button" data-open-booking class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full bg-gold-400 px-7 font-semibold text-ink transition hover:bg-gold-300 active:scale-[.98]">
+                  <i data-lucide="calendar-check" class="h-4 w-4" aria-hidden="true"></i> Prendre RDV
+                </button>
+                <a href="https://www.google.com/maps/search/?api=1&query=B%20%26%20H%20Coiffure%2C%201%20Rue%20de%20Montmorency%2C%2095360%20Montmagny" target="_blank" rel="noopener" class="inline-flex min-h-[52px] items-center justify-center gap-2 rounded-full border border-cream/20 px-7 font-medium text-cream transition hover:border-gold-400/60 hover:text-gold-300">
+                  <i data-lucide="navigation" class="h-4 w-4" aria-hidden="true"></i> Ouvrir dans Google Maps
+                </a>
+              </div>
+
+              <div class="reveal mt-10 overflow-hidden rounded-2xl border border-cream/10">
+                <iframe title="Plan d'accès au salon B & H Coiffure, 1 Rue de Montmorency à Montmagny" src="https://www.google.com/maps?q=1+Rue+de+Montmorency,+95360+Montmagny&output=embed" class="h-64 w-full grayscale invert-[.92] hue-rotate-180 contrast-[.9]" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+            </div>
+
+            <div class="reveal glass rounded-3xl p-6 sm:p-8">
+              <div class="flex items-center justify-between gap-4">
+                <h3 class="font-display text-2xl text-cream">Horaires d'ouverture</h3>
+                <span id="open-pill" class="inline-flex items-center gap-2 rounded-full bg-emerald-400/15 px-3 py-1 text-xs font-semibold text-emerald-300">
+                  <span class="h-1.5 w-1.5 rounded-full bg-current"></span><span id="open-pill-text">Ouvert</span>
+                </span>
+              </div>
+              <ul id="hours-list" class="mt-6 divide-y divide-cream/10 text-sm"></ul>
+              <p class="mt-6 flex items-start gap-2 text-xs leading-relaxed text-cream/65"><i data-lucide="info" class="mt-0.5 h-4 w-4 shrink-0 text-gold-400" aria-hidden="true"></i>Non-stop, y compris le dimanche. Horaires susceptibles d'évoluer les jours fériés.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-cream/10 bg-moka-900/60">
+    <div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-4 lg:px-8">
+      <div class="md:col-span-2">
+        <a href="#accueil" class="flex items-center gap-3" aria-label="B & H Coiffure, retour en haut">
+          <span class="grid h-11 w-11 place-items-center rounded-full border border-gold-400/50 font-display text-lg font-semibold text-gold-300">B&amp;H</span>
+          <span class="font-display text-xl text-cream">B &amp; H Coiffure</span>
+        </a>
+        <p class="mt-4 max-w-sm text-sm text-cream/60">Coiffure Homme, Femme, Enfant &amp; Barbier à Montmagny. Ouvert 7j/7 de 9h00 à 19h30 non-stop.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#" aria-label="Instagram de B & H Coiffure" class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 text-cream/70 transition hover:border-gold-400 hover:text-gold-300"><i data-lucide="instagram" class="h-5 w-5" aria-hidden="true"></i></a>
+          <a href="#" aria-label="Facebook de B & H Coiffure" class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 text-cream/70 transition hover:border-gold-400 hover:text-gold-300"><i data-lucide="facebook" class="h-5 w-5" aria-hidden="true"></i></a>
+          <a href="#" aria-label="TikTok de B & H Coiffure" class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 text-cream/70 transition hover:border-gold-400 hover:text-gold-300"><i data-lucide="music-2" class="h-5 w-5" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div>
+        <h2 class="text-xs font-semibold uppercase tracking-[.2em] text-gold-400">Adresse</h2>
+        <p class="mt-4 text-sm leading-relaxed text-cream/70">1 Rue de Montmorency<br />95360 Montmagny</p>
+      </div>
+      <div>
+        <h2 class="text-xs font-semibold uppercase tracking-[.2em] text-gold-400">Navigation</h2>
+        <ul class="mt-4 space-y-2 text-sm text-cream/70">
+          <li><a href="#prestations" class="hover:text-gold-300">Prestations & tarifs</a></li>
+          <li><a href="#galerie" class="hover:text-gold-300">Galerie</a></li>
+          <li><a href="#contact" class="hover:text-gold-300">Horaires & accès</a></li>
+          <li><button type="button" id="open-legal" class="hover:text-gold-300">Mentions légales</button></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-cream/10">
+      <p class="mx-auto max-w-7xl px-4 py-6 text-xs text-cream/60 sm:px-6 lg:px-8">© <span id="year">2026</span> B &amp; H Coiffure · Montmagny. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- ============ BOOKING MODAL ============ -->
+  <dialog id="booking" aria-labelledby="booking-title" class="m-auto w-[calc(100%-2rem)] max-w-xl bg-transparent p-0 text-cream backdrop:bg-black/70">
+    <div class="modal-panel glass-strong max-h-[90vh] overflow-y-auto rounded-3xl border border-gold-400/20 shadow-2xl shadow-black/60">
+      <div class="sticky top-0 z-10 flex items-center justify-between gap-4 border-b border-cream/10 bg-ink/80 px-6 py-5 backdrop-blur">
+        <div>
+          <p id="step-label" class="text-[11px] font-semibold uppercase tracking-[.2em] text-gold-400">Étape 1 sur 3</p>
+          <h2 id="booking-title" class="font-display text-2xl text-cream">Prendre rendez-vous</h2>
+        </div>
+        <button type="button" data-close-booking class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 text-cream/80 transition hover:border-gold-400 hover:text-gold-300" aria-label="Fermer la fenêtre de réservation">
+          <i data-lucide="x" class="h-5 w-5" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="h-1 bg-cream/5"><div id="progress" class="h-full w-1/3 bg-gold-400 transition-all duration-500"></div></div>
+
+      <form id="booking-form" class="px-6 py-6" novalidate>
+        <!-- Step 1 -->
+        <fieldset data-step="1">
+          <legend class="text-sm font-semibold text-cream">Choisissez votre prestation</legend>
+          <div id="service-choices" class="mt-4 grid gap-2"></div>
+          <p class="err mt-3 hidden text-sm text-rose-300" role="alert">Sélectionnez une prestation pour continuer.</p>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset data-step="2" class="hidden">
+          <legend class="text-sm font-semibold text-cream">Choisissez le jour</legend>
+          <div id="date-choices" class="-mx-1 mt-4 flex gap-2 overflow-x-auto px-1 pb-2"></div>
+          <p class="mt-6 text-sm font-semibold text-cream">Créneau horaire</p>
+          <div id="time-choices" class="mt-3 grid grid-cols-3 gap-2 sm:grid-cols-4"></div>
+          <p class="err mt-3 hidden text-sm text-rose-300" role="alert">Choisissez un jour et un créneau.</p>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset data-step="3" class="hidden">
+          <legend class="text-sm font-semibold text-cream">Vos coordonnées</legend>
+          <div id="recap" class="mt-4 rounded-2xl border border-gold-400/20 bg-gold-400/[.07] p-4 text-sm"></div>
+          <div class="mt-5 grid gap-4">
+            <div>
+              <label for="f-name" class="text-sm font-medium text-cream/85">Nom et prénom</label>
+              <input id="f-name" name="name" type="text" autocomplete="name" required class="mt-1.5 block min-h-[48px] w-full rounded-xl border border-cream/15 bg-ink/60 px-4 text-cream placeholder:text-cream/40 focus:border-gold-400 focus:outline-none" placeholder="Camille Martin" />
+              <p class="field-err mt-1 hidden text-xs text-rose-300">Indiquez votre nom.</p>
+            </div>
+            <div>
+              <label for="f-phone" class="text-sm font-medium text-cream/85">Téléphone</label>
+              <input id="f-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required class="mt-1.5 block min-h-[48px] w-full rounded-xl border border-cream/15 bg-ink/60 px-4 text-cream placeholder:text-cream/40 focus:border-gold-400 focus:outline-none" placeholder="06 12 34 56 78" />
+              <p class="field-err mt-1 hidden text-xs text-rose-300">Numéro à 10 chiffres attendu.</p>
+            </div>
+            <div>
+              <label for="f-note" class="text-sm font-medium text-cream/85">Précision <span class="text-cream/60">(facultatif)</span></label>
+              <textarea id="f-note" name="note" rows="2" class="mt-1.5 block w-full rounded-xl border border-cream/15 bg-ink/60 px-4 py-3 text-cream placeholder:text-cream/40 focus:border-gold-400 focus:outline-none" placeholder="Longueur, envie de couleur…"></textarea>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Success -->
+        <div data-step="4" class="hidden py-6 text-center">
+          <span class="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gold-400 text-ink"><i data-lucide="check" class="h-8 w-8" aria-hidden="true"></i></span>
+          <h3 class="mt-6 font-display text-3xl text-cream">Demande envoyée</h3>
+          <p id="success-text" class="mx-auto mt-3 max-w-sm text-sm text-cream/70"></p>
+          <p class="mx-auto mt-4 max-w-sm text-xs text-cream/60">Démonstration : aucune donnée n'est transmise. Le salon confirmera votre créneau.</p>
+        </div>
+
+        <div id="booking-nav" class="mt-8 flex items-center justify-between gap-3 border-t border-cream/10 pt-5">
+          <button type="button" id="btn-prev" class="invisible inline-flex min-h-[48px] items-center gap-2 rounded-full px-4 text-sm font-medium text-cream/75 transition hover:text-gold-300"><i data-lucide="arrow-left" class="h-4 w-4" aria-hidden="true"></i> Retour</button>
+          <button type="button" id="btn-next" class="inline-flex min-h-[48px] items-center gap-2 rounded-full bg-gold-400 px-6 text-sm font-semibold text-ink transition hover:bg-gold-300 active:scale-[.98]">Continuer <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i></button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- ============ LEGAL MODAL ============ -->
+  <dialog id="legal" aria-labelledby="legal-title" class="m-auto w-[calc(100%-2rem)] max-w-lg rounded-3xl border border-gold-400/20 bg-moka-900 p-0 text-cream backdrop:bg-black/70">
+    <div class="p-6 sm:p-8">
+      <div class="flex items-center justify-between gap-4">
+        <h2 id="legal-title" class="font-display text-2xl">Mentions légales</h2>
+        <button type="button" data-close-legal class="grid h-11 w-11 place-items-center rounded-full border border-cream/15 hover:border-gold-400" aria-label="Fermer les mentions légales"><i data-lucide="x" class="h-5 w-5" aria-hidden="true"></i></button>
+      </div>
+      <div class="mt-5 space-y-3 text-sm leading-relaxed text-cream/70">
+        <p><strong class="text-cream">Éditeur :</strong> B &amp; H Coiffure, 1 Rue de Montmorency, 95360 Montmagny.</p>
+        <p><strong class="text-cream">Forme juridique, SIRET, directeur de la publication :</strong> à compléter.</p>
+        <p><strong class="text-cream">Hébergement :</strong> Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis.</p>
+        <p><strong class="text-cream">Données personnelles :</strong> le formulaire de réservation est une démonstration et ne collecte ni ne transmet aucune donnée.</p>
+        <p><strong class="text-cream">Crédits photos :</strong> Unsplash (images d'illustration).</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    /* ---------- Data ---------- */
+    const SERVICES = {
+      femme: [
+        { name: 'Coupe + brushing', desc: 'Shampooing, coupe personnalisée et mise en forme.', price: 'dès 35 €', dur: '45 min', icon: 'scissors' },
+        { name: 'Brushing', desc: 'Lisse, wavy ou volume, sur cheveux courts à longs.', price: 'dès 22 €', dur: '30 min', icon: 'wind' },
+        { name: 'Coupe cheveux bouclés', desc: 'Coupe adaptée à la boucle, définition et conseils de routine.', price: 'dès 45 €', dur: '1 h', icon: 'waves' },
+        { name: 'Soin profond', desc: 'Masque nourrissant ou réparateur selon diagnostic.', price: 'dès 15 €', dur: '20 min', icon: 'droplets' },
+        { name: 'Chignon & coiffure événement', desc: 'Mariage, soirée, cérémonie : attache ou ondulations.', price: 'dès 50 €', dur: '1 h', icon: 'sparkles' },
+        { name: 'Extensions', desc: 'Pose sur devis après consultation, rendu naturel.', price: 'sur devis', dur: 'variable', icon: 'gem' },
+      ],
+      homme: [
+        { name: 'Coupe homme', desc: 'Ciseaux ou tondeuse, shampooing et coiffage.', price: 'dès 18 €', dur: '30 min', icon: 'scissors' },
+        { name: 'Dégradé / fade', desc: 'Dégradé américain, à blanc ou bas, contours nets.', price: 'dès 20 €', dur: '35 min', icon: 'zap' },
+        { name: 'Taille de barbe', desc: 'Traçage, taille et finition au rasoir.', price: 'dès 12 €', dur: '20 min', icon: 'pen-tool' },
+        { name: 'Coupe + barbe', desc: 'La formule complète pour un look soigné.', price: 'dès 28 €', dur: '50 min', icon: 'crown' },
+        { name: 'Rasage traditionnel', desc: 'Serviette chaude, rasoir, soin apaisant.', price: 'dès 20 €', dur: '30 min', icon: 'flame' },
+        { name: 'Couleur / camouflage gris', desc: 'Atténuation naturelle des cheveux blancs.', price: 'dès 20 €', dur: '30 min', icon: 'palette' },
+      ],
+      enfant: [
+        { name: 'Coupe garçon (– 12 ans)', desc: 'Coupe rapide et soignée, dans la bonne humeur.', price: 'dès 13 €', dur: '20 min', icon: 'smile' },
+        { name: 'Coupe fille (– 12 ans)', desc: 'Pointes, frange ou nouvelle coupe.', price: 'dès 16 €', dur: '25 min', icon: 'star' },
+        { name: 'Coupe ado (12 – 16 ans)', desc: 'Les coupes tendance, adaptées à leur âge.', price: 'dès 16 €', dur: '30 min', icon: 'sparkle' },
+        { name: 'Tresses & nattes', desc: 'Tresses simples ou plaquées pour l\'école ou une fête.', price: 'dès 15 €', dur: 'variable', icon: 'heart' },
+      ],
+      technique: [
+        { name: 'Coloration racines', desc: 'Couverture des racines, ton sur ton ou permanente.', price: 'dès 40 €', dur: '1 h', icon: 'palette' },
+        { name: 'Coloration complète', desc: 'Couleur uniforme et brillante, des racines aux pointes.', price: 'dès 55 €', dur: '1 h 30', icon: 'paint-bucket' },
+        { name: 'Balayage', desc: 'Éclaircissement à main levée, effet soleil naturel.', price: 'dès 75 €', dur: '2 h', icon: 'sun' },
+        { name: 'Mèches', desc: 'Mèches papier pour un éclaircissement précis.', price: 'dès 65 €', dur: '2 h', icon: 'layers' },
+        { name: 'Patine / gloss', desc: 'Neutralise les reflets et ravive l\'éclat.', price: 'dès 25 €', dur: '30 min', icon: 'droplet' },
+        { name: 'Lissage', desc: 'Discipline et brillance durables, sur devis.', price: 'sur devis', dur: 'variable', icon: 'align-justify' },
+      ],
+    };
+    const DAYS = ['Dimanche','Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi'];
+    const OPEN = 9 * 60, CLOSE = 19 * 60 + 30;
+
+    const $ = (s, el = document) => el.querySelector(s);
+    const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+    const icons = () => window.lucide && lucide.createIcons();
+
+    /* ---------- Header blur on scroll ---------- */
+    const header = $('#header');
+    const onScroll = () => {
+      const s = window.scrollY > 20;
+      header.classList.toggle('glass-strong', s);
+      header.classList.toggle('border-b', s);
+      header.classList.toggle('border-gold-400/10', s);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    /* ---------- Mobile menu ---------- */
+    const burger = $('#burger'), menu = $('#mobile-menu');
+    const setMenu = (open) => {
+      menu.classList.toggle('hidden', !open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Fermer le menu' : 'Ouvrir le menu');
+      burger.innerHTML = `<i data-lucide="${open ? 'x' : 'menu'}" class="h-5 w-5" aria-hidden="true"></i>`;
+      icons();
+      if (open) header.classList.add('glass-strong'); else onScroll();
+    };
+    burger.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+    $$('.mobile-link').forEach(a => a.addEventListener('click', () => setMenu(false)));
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.classList.contains('hidden')) { setMenu(false); burger.focus(); } });
+
+    /* ---------- Tabs ---------- */
+    const panel = $('#services-panel');
+    const tabs = $$('.tab-btn');
+    const renderServices = (cat) => {
+      panel.innerHTML = SERVICES[cat].map((s, i) => `
+        <article class="service-card fade-in group flex flex-col rounded-3xl border border-cream/10 bg-moka-800/50 p-6" style="animation-delay:${i * 60}ms">
+          <div class="flex items-start justify-between gap-4">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-gold-400/15 text-gold-300 ring-1 ring-gold-400/20 transition group-hover:bg-gold-400 group-hover:text-ink"><i data-lucide="${s.icon}" class="h-5 w-5" aria-hidden="true"></i></span>
+            <span class="font-display text-xl font-semibold text-gold-300">${s.price}</span>
+          </div>
+          <h3 class="mt-5 text-lg font-semibold text-cream">${s.name}</h3>
+          <p class="mt-2 flex-1 text-sm leading-relaxed text-cream/60">${s.desc}</p>
+          <div class="mt-5 flex items-center justify-between border-t border-cream/10 pt-4 text-xs text-cream/65">
+            <span class="inline-flex items-center gap-1.5"><i data-lucide="timer" class="h-3.5 w-3.5" aria-hidden="true"></i>${s.dur}</span>
+            <button type="button" class="book-this inline-flex min-h-[44px] items-center gap-1 font-semibold text-gold-300 transition hover:text-gold-400" data-service="${s.name}">Réserver<i data-lucide="arrow-right" class="h-3.5 w-3.5 transition group-hover:translate-x-0.5" aria-hidden="true"></i><span class="sr-only"> ${s.name}</span></button>
+          </div>
+        </article>`).join('');
+      icons();
+    };
+    const selectTab = (btn, focus = false) => {
+      tabs.forEach(t => { const on = t === btn; t.setAttribute('aria-selected', on); t.tabIndex = on ? 0 : -1; });
+      panel.setAttribute('aria-labelledby', btn.id);
+      renderServices(btn.dataset.cat);
+      if (focus) btn.focus();
+    };
+    tabs.forEach((t, i) => {
+      t.addEventListener('click', () => selectTab(t));
+      t.addEventListener('keydown', e => {
+        const dir = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (dir) { e.preventDefault(); selectTab(tabs[(i + dir + tabs.length) % tabs.length], true); }
+      });
+    });
+    renderServices('femme');
+    panel.addEventListener('click', e => { const b = e.target.closest('.book-this'); if (b) openBooking(b.dataset.service); });
+
+    /* ---------- Reveal on scroll ---------- */
+    const io = new IntersectionObserver(entries => entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('is-visible'); io.unobserve(en.target); }
+    }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    $$('.reveal').forEach((el, i) => { el.style.transitionDelay = `${(i % 4) * 70}ms`; io.observe(el); });
+
+    /* ---------- Opening status (heure de Paris) ---------- */
+    const parisNow = () => {
+      const p = new Intl.DateTimeFormat('fr-FR', { timeZone: 'Europe/Paris', weekday: 'long', hour: '2-digit', minute: '2-digit', hour12: false }).formatToParts(new Date());
+      const get = t => p.find(x => x.type === t).value;
+      return { day: get('weekday'), minutes: parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10) };
+    };
+    const renderStatus = () => {
+      const { day, minutes } = parisNow();
+      const open = minutes >= OPEN && minutes < CLOSE;
+      $('#open-status').textContent = open ? 'Ouvert maintenant' : (minutes < OPEN ? "Ouvre aujourd'hui à 09h00" : 'Ouvre demain à 09h00');
+      $('#open-pill-text').textContent = open ? 'Ouvert maintenant' : 'Fermé';
+      $('#open-pill').className = `inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold ${open ? 'bg-emerald-400/15 text-emerald-300' : 'bg-rose-400/15 text-rose-300'}`;
+      $('#open-ping').classList.toggle('hidden', !open);
+      $('#open-dot').classList.toggle('bg-emerald-400', open);
+      $('#open-dot').classList.toggle('bg-gold-400', !open);
+      const order = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+      $('#hours-list').innerHTML = order.map(d => {
+        const today = d.toLowerCase() === day.toLowerCase();
+        return `<li class="flex items-center justify-between py-3 ${today ? 'text-gold-300 font-semibold' : 'text-cream/75'}">
+          <span>${d}${today ? ' <span class="ml-2 rounded-full bg-gold-400/15 px-2 py-0.5 text-[10px] uppercase tracking-wider">Aujourd\'hui</span>' : ''}</span>
+          <span class="tabular-nums">09h00 – 19h30</span></li>`;
+      }).join('');
+    };
+    renderStatus(); setInterval(renderStatus, 60000);
+    $('#year').textContent = new Date().getFullYear();
+
+    /* ---------- Booking modal ---------- */
+    const dlg = $('#booking'), form = $('#booking-form');
+    const state = { step: 1, service: null, date: null, time: null };
+    const ALL = Object.entries(SERVICES).flatMap(([cat, list]) => list.map(s => ({ ...s, cat })));
+    const CAT_LABEL = { femme: 'Femme', homme: 'Homme', enfant: 'Enfant', technique: 'Couleur' };
+
+    $('#service-choices').innerHTML = ALL.map(s => `
+      <button type="button" class="chip flex min-h-[52px] w-full items-center justify-between gap-3 rounded-xl border border-cream/10 bg-ink/40 px-4 py-2 text-left text-sm transition hover:border-gold-400/50" aria-pressed="false" data-service="${s.name}">
+        <span><span class="block font-medium">${s.name}</span><span class="text-xs opacity-60">${CAT_LABEL[s.cat]} · ${s.dur}</span></span>
+        <span class="shrink-0 font-semibold">${s.price}</span>
+      </button>`).join('');
+
+    const pickService = (name) => {
+      state.service = name;
+      $$('#service-choices .chip').forEach(c => c.setAttribute('aria-pressed', c.dataset.service === name));
+    };
+    $('#service-choices').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) pickService(c.dataset.service); });
+
+    const fmtDate = d => d.toLocaleDateString('fr-FR', { weekday: 'long', day: 'numeric', month: 'long' });
+    const renderDates = () => {
+      const base = new Date(); base.setHours(0, 0, 0, 0);
+      $('#date-choices').innerHTML = Array.from({ length: 14 }, (_, i) => {
+        const d = new Date(base); d.setDate(base.getDate() + i);
+        return `<button type="button" class="chip flex min-h-[72px] min-w-[68px] shrink-0 flex-col items-center justify-center rounded-xl border border-cream/10 bg-ink/40 px-3 text-sm transition hover:border-gold-400/50" aria-pressed="false" data-date="${d.toISOString()}" aria-label="${fmtDate(d)}">
+          <span class="text-[11px] uppercase tracking-wider opacity-70">${i === 0 ? "Auj." : DAYS[d.getDay()].slice(0, 3)}</span>
+          <span class="font-display text-xl">${d.getDate()}</span>
+          <span class="text-[11px] opacity-60">${d.toLocaleDateString('fr-FR', { month: 'short' })}</span></button>`;
+      }).join('');
+    };
+    const renderTimes = () => {
+      const box = $('#time-choices');
+      if (!state.date) { box.innerHTML = '<p class="col-span-full text-sm text-cream/60">Sélectionnez d\'abord un jour.</p>'; return; }
+      const d = new Date(state.date), isToday = new Date().toDateString() === d.toDateString();
+      const nowMin = new Date().getHours() * 60 + new Date().getMinutes();
+      const seed = d.getDate() * 7 + d.getMonth();
+      const slots = [];
+      for (let m = OPEN; m <= CLOSE - 30; m += 30) {
+        const label = `${String(Math.floor(m / 60)).padStart(2, '0')}h${String(m % 60).padStart(2, '0')}`;
+        const taken = ((m / 30 + seed) % 5 === 0) || (isToday && m <= nowMin + 30);
+        slots.push(`<button type="button" class="slot min-h-[44px] rounded-xl border border-cream/10 bg-ink/40 text-sm tabular-nums transition hover:border-gold-400/50" aria-pressed="${state.time === label}" data-time="${label}" ${taken ? 'disabled aria-label="' + label + ', indisponible"' : ''}>${label}</button>`);
+      }
+      box.innerHTML = slots.join('');
+      if (!box.querySelector('.slot:not(:disabled)')) box.innerHTML = '<p class="col-span-full text-sm text-cream/60">Plus de créneau ce jour-là, essayez demain.</p>';
+    };
+    $('#date-choices').addEventListener('click', e => {
+      const c = e.target.closest('.chip'); if (!c) return;
+      state.date = c.dataset.date; state.time = null;
+      $$('#date-choices .chip').forEach(x => x.setAttribute('aria-pressed', x === c));
+      renderTimes();
+    });
+    $('#time-choices').addEventListener('click', e => {
+      const s = e.target.closest('.slot'); if (!s || s.disabled) return;
+      state.time = s.dataset.time;
+      $$('#time-choices .slot').forEach(x => x.setAttribute('aria-pressed', x === s));
+    });
+
+    const showStep = (n) => {
+      state.step = n;
+      $$('[data-step]', form).forEach(f => f.classList.toggle('hidden', Number(f.dataset.step) !== n));
+      $$('.err', form).forEach(e => e.classList.add('hidden'));
+      $('#progress').style.width = `${Math.min(n, 3) / 3 * 100}%`;
+      $('#step-label').textContent = n <= 3 ? `Étape ${n} sur 3` : 'Confirmé';
+      $('#btn-prev').classList.toggle('invisible', n === 1 || n === 4);
+      $('#booking-nav').classList.toggle('hidden', n === 4);
+      $('#btn-next').innerHTML = n === 3 ? 'Confirmer la demande <i data-lucide="check" class="h-4 w-4" aria-hidden="true"></i>' : 'Continuer <i data-lucide="arrow-right" class="h-4 w-4" aria-hidden="true"></i>';
+      if (n === 3) {
+        const s = ALL.find(x => x.name === state.service);
+        $('#recap').innerHTML = `<p class="font-semibold text-cream">${s.name} <span class="font-normal text-gold-300">· ${s.price}</span></p>
+          <p class="mt-1 capitalize text-cream/70">${fmtDate(new Date(state.date))} à ${state.time}</p>`;
+      }
+      icons();
+      const first = $(`[data-step="${n}"] button, [data-step="${n}"] input`, form);
+      if (first && n !== 1) first.focus();
+    };
+
+    $('#btn-next').addEventListener('click', () => {
+      const cur = $(`[data-step="${state.step}"]`, form);
+      if (state.step === 1 && !state.service) return cur.querySelector('.err').classList.remove('hidden');
+      if (state.step === 2 && !(state.date && state.time)) return cur.querySelector('.err').classList.remove('hidden');
+      if (state.step === 3) {
+        const name = $('#f-name'), phone = $('#f-phone');
+        const okName = name.value.trim().length > 1;
+        const okPhone = /^(?:\+33\s?|0)[1-9](?:[\s.-]?\d{2}){4}$/.test(phone.value.trim());
+        [[name, okName], [phone, okPhone]].forEach(([el, ok]) => {
+          el.setAttribute('aria-invalid', String(!ok));
+          el.classList.toggle('border-rose-400', !ok);
+          el.nextElementSibling.classList.toggle('hidden', ok);
+        });
+        if (!okName) return name.focus();
+        if (!okPhone) return phone.focus();
+        $('#success-text').textContent = `Merci ${name.value.trim().split(' ')[0]} ! Votre demande pour « ${state.service} » le ${fmtDate(new Date(state.date))} à ${state.time} a bien été enregistrée.`;
+        return showStep(4);
+      }
+      showStep(state.step + 1);
+    });
+    $('#btn-prev').addEventListener('click', () => showStep(Math.max(1, state.step - 1)));
+
+    function openBooking(preselect) {
+      form.reset();
+      Object.assign(state, { service: null, date: null, time: null });
+      $$('#service-choices .chip').forEach(c => c.setAttribute('aria-pressed', 'false'));
+      $$('input, textarea', form).forEach(el => { el.classList.remove('border-rose-400'); el.removeAttribute('aria-invalid'); });
+      $$('.field-err', form).forEach(e => e.classList.add('hidden'));
+      renderDates(); renderTimes();
+      if (preselect) { pickService(preselect); showStep(2); } else showStep(1);
+      setMenu(false);
+      dlg.showModal();
+      document.body.style.overflow = 'hidden';
+    }
+    $$('[data-open-booking]').forEach(b => b.addEventListener('click', () => openBooking()));
+    $$('[data-close-booking]').forEach(b => b.addEventListener('click', () => dlg.close()));
+    dlg.addEventListener('close', () => { document.body.style.overflow = ''; });
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+
+    /* ---------- Legal modal ---------- */
+    const legal = $('#legal');
+    $('#open-legal').addEventListener('click', () => legal.showModal());
+    $$('[data-close-legal]').forEach(b => b.addEventListener('click', () => legal.close()));
+    legal.addEventListener('click', e => { if (e.target === legal) legal.close(); });
+
+    icons();
+  </script>
+</body>
+</html>
